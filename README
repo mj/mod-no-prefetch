@@ -1,0 +1,37 @@
+[Serious warning: I wrote this code more than six years ago. It is most
+likely suffering from severe bitrot by now and you really should not be
+using Apache 1.3 anymore.]
+
+
+mod_no_prefetch
+===============
+
+May 2005
+
+Introduction
+------------
+
+This module is a simple blocker for requests originating from 
+Mozilla's prefetch feature [1] or Google Web Accelerator [2].
+
+The module has been written and is maintained by Martin Jansen
+(martin@divbyzero.net).
+
+Installation
+------------
+
+To enable it, download the module and unzip it in the src/modules
+subdirectory of your Apache source tree.  It can then be compiled
+into Apache using the following ./configure options:
+
+./configure --activate-module=src/modules/no_prefetch/mod_no_prefetch.c --enable-module=no_prefetch
+
+Configuration
+-------------
+
+Currently there is no way to configure the module.  It will just
+block all requests that match the pattern.
+
+[1]: http://www.mozilla.org/projects/netlib/Link_Prefetching_FAQ.html
+[2]: http://webaccelerator.google.com/
+     http://37signals.com/svn/archives2/google_web_accelerator_hey_not_so_fast_an_alert_for_web_app_designers.php
